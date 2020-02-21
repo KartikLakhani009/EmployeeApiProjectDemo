@@ -1,1 +1,32 @@
+# Get All Employee
+
 http://dummy.restapiexample.com/api/v1/employees
+
+# Post Employee
+
+POST http://dummy.restapiexample.com/api/v1/create
+content-type: application/json
+
+{
+    "status": "success",
+    "data": {
+        "name": "test",
+        "salary": "123",
+        "age": "23",
+        "id": 25
+    }
+}
+
+# Do Tomorrow
+
+# Put method , Update Employee Details 
+
+http://dummy.restapiexample.com/api/v1/update/21/
+
+# Delete Employee 
+
+
+http://dummy.restapiexample.com/api/v1/delete/2/
+
+
+
