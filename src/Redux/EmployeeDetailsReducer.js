@@ -9,7 +9,6 @@ const data = {
       profile_image: '',
     },
   ],
-  temp: [],
 };
 
 export default (state = data, action) => {
@@ -22,52 +21,9 @@ export default (state = data, action) => {
     case FETCH_API_EMP:
       // let d = JSON.parse(action.payload);
 
-      let d = action.payload.data;
-      let b = [];
+      let d = action.payload;
 
-      console.log('Before array of b : ', b);
-      // b[0] = 'jhdbcjkndk'
-      for (let i = 0; i < 7; i++) {
-        b.push(d[i]);
-      }
-
-      console.log('after array of b : ', b);
-
-      return {...state, emp: d, temp: b};
-
-    case Get_Freq_data:
-      let index = action.index;
-      let end = action.end;
-      let c = [];
-      // let j = 0;
-
-      // let len = state.emp.length;
-      console.log('Before array of c : ', c);
-      // console.log('state.emp.length :' + state.emp.length);
-      // b[0] = 'jhdbcjkndk'
-      if (state.temp.length != 0) {
-        for (let i = index; i < end; i++) {
-          c.push(state.emp[i]);
-        }
-
-        console.log('after array of c : ', c);
-
-        return {...state.emp, temp: c};
-      }
-      //  else {
-      //   if (7 >= len - end) {
-      //     for (let i = index; i < len; i++) {
-      //       c.push(state.emp[i]);
-      //     }
-
-      //     console.log('after array of c : ', c);
-
-      //     return {...state.emp, temp: c};
-      //   } else {
-      //     alert('Invalid range');
-      //   }
-      // }
-      return {...state};
+      return d;
     default:
       return state;
   }

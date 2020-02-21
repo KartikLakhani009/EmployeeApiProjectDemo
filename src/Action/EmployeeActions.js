@@ -6,21 +6,6 @@ export const Get_emp = () => {
   };
 };
 
-// export const Fetch_API_emp = payload => {
-//   return {
-//     type: FETCH_API_EMP,
-//     payload,
-//   };
-// };
-
-export const Get_Freq_Emp_data = (index, end) => {
-  return {
-    type: Get_Freq_data,
-    index,
-    end,
-  };
-};
-
 export const Fetch_Async_Emp = () => {
   return async dispatch => {
     await fetch('http://dummy.restapiexample.com/api/v1/employees')
@@ -33,7 +18,7 @@ export const Fetch_Async_Emp = () => {
         console.log(json);
         dispatch({
           type: FETCH_API_EMP,
-          payload: json,
+          payload: json.data,
         });
       })
       .catch(error => console.error('error', error));
