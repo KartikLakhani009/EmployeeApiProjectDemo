@@ -16,6 +16,11 @@ const list = [
     screen: 'WelcomeScreen',
     title: 'Welcome Screen Test',
   },
+  {
+    id: 902,
+    screen: 'EmployeeList',
+    title: 'Employee List',
+  },
 ];
 
 export default class HomeScreen extends Component {

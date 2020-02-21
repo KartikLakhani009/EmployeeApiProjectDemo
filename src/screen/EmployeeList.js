@@ -10,15 +10,25 @@ import {
 import WithEmployee from '../hoc/WithEmployee';
 import WithLoader from '../hoc/WithLoader';
 
-class TDP extends Component {
+class EmployeeList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstTime: false,
+    };
+  }
+
   componentDidMount = () => {
     console.log('componentDidMount called', this);
 
-    // this.props.TurnOnLoaderDispatch(false);
-    this.props.GetEmpAPIDispatch();
+    if (this.state.firstTime === false) {
+      // this.props.TurnOnLoaderDispatch(false);
+      this.props.GetEmpAPIDispatch();
 
-    let data = this.props.employee.emp;
-    console.log('this.props.employee.temp :', data);
+      let data = this.props.employee.emp;
+      console.log('this.props.employee.temp :', data);
+      this.setState({firstTime: true});
+    }
   };
 
   render() {
@@ -60,7 +70,7 @@ class TDP extends Component {
     );
   }
 }
-export default WithLoader(WithEmployee(TDP));
+export default WithLoader(WithEmployee(EmployeeList));
 
 const styles = StyleSheet.create({
   container: {

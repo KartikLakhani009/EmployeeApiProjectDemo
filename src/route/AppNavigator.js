@@ -13,15 +13,18 @@ import Drawercomponet from '../screen/Drawercomponet';
 //Screen
 import HomeScreen from '../screen/HomeScreen';
 import WelcomeScreen from '../screen/WelcomeScreen';
+import EmployeeList from '../screen/EmployeeList';
 
 const AutoStack = createStackNavigator({
   HomeScreen: {screen: HomeScreen},
   WelcomeScreen: {screen: WelcomeScreen},
+  EmployeeList: {screen: EmployeeList},
 });
 
 const DrawerNavigation1 = createStackNavigator({
   HomeScreen: {screen: HomeScreen}, //identification screen or define screen
   WelcomeScreen: {screen: WelcomeScreen},
+  EmployeeList: {screen: EmployeeList},
 });
 
 const MyDrawerNavigation = createDrawerNavigator(

@@ -23,7 +23,7 @@ export default (state = data, action) => {
 
       let d = action.payload;
 
-      return d;
+      return {emp: d};
     default:
       return state;
   }
