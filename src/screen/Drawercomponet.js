@@ -3,12 +3,17 @@ import {View, TouchableOpacity, Text, FlatList, StyleSheet} from 'react-native';
 import {withNavigation} from 'react-navigation';
 // import {AppImage} from '../Images';
 
-const [WelcomeScreen] = [0];
+const [WelcomeScreen, EmployeeList] = [0, 1];
 const DRAWER = [
   {
-    id: 901,
+    id: 0,
     screen: 'WelcomeScreen',
     title: 'Welcome Screen Test',
+  },
+  {
+    id: 1,
+    screen: 'EmployeeList',
+    title: 'Employee List',
   },
 ];
 
@@ -18,6 +23,9 @@ class Drawercomponet extends Component {
     const {navigation} = this.props;
     switch (item.id) {
       case WelcomeScreen:
+        navigation.navigate(item.screen);
+        break;
+      case EmployeeList:
         navigation.navigate(item.screen);
         break;
     }

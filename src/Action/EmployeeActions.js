@@ -19,6 +19,7 @@ export const Fetch_Async_Emp = () => {
         dispatch({
           type: FETCH_API_EMP,
           payload: json.data,
+          firstTime: true,
         });
       })
       .catch(error => console.error('error', error));

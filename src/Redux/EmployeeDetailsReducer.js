@@ -9,6 +9,7 @@ const data = {
       profile_image: '',
     },
   ],
+  firstTime: false,
 };
 
 export default (state = data, action) => {
@@ -23,7 +24,7 @@ export default (state = data, action) => {
 
       let d = action.payload;
 
-      return {emp: d};
+      return {emp: d, firstTime: action.firstTime};
     default:
       return state;
   }

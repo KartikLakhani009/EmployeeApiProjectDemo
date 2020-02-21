@@ -11,23 +11,16 @@ import WithEmployee from '../hoc/WithEmployee';
 import WithLoader from '../hoc/WithLoader';
 
 class EmployeeList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      firstTime: false,
-    };
-  }
-
   componentDidMount = () => {
-    console.log('componentDidMount called', this);
+    console.log('componentDidMount called');
+    // , this);
 
-    if (this.state.firstTime === false) {
+    if (this.props.employee.firstTime === false) {
       // this.props.TurnOnLoaderDispatch(false);
       this.props.GetEmpAPIDispatch();
 
       let data = this.props.employee.emp;
-      console.log('this.props.employee.temp :', data);
-      this.setState({firstTime: true});
+      console.log('this.props.employee.emp :', data);
     }
   };
 
