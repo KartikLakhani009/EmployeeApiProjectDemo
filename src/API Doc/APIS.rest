@@ -1,32 +1,34 @@
 # Get All Employee
 
-http://dummy.restapiexample.com/api/v1/employees
+GET http://dummy.restapiexample.com/api/v1/employees HTTP/1.1
+
+###
+
+GET http://dummy.restapiexample.com/api/v1/employee/1 HTTP/1.1
+
 
 # Post Employee
+###
 
-POST http://dummy.restapiexample.com/api/v1/create
+POST http://dummy.restapiexample.com/api/v1/create HTTP/1.1
 content-type: application/json
 
-{
-    "status": "success",
-    "data": {
-        "name": "test",
-        "salary": "123",
-        "age": "23",
-        "id": 25
-    }
-}
+{"name":"test12","salary":"1234","age":"25"}
 
 # Do Tomorrow
 
 # Put method , Update Employee Details 
+###
 
-http://dummy.restapiexample.com/api/v1/update/21/
+PUT http://dummy.restapiexample.com/api/v1/update/23
+content-type: application/json
+
+{"name":"test1","salary":"1123","age":"23"}
 
 # Delete Employee 
+###
 
-
-http://dummy.restapiexample.com/api/v1/delete/2/
+DELETE http://dummy.restapiexample.com/api/v1/delete/2/
 
 
 
