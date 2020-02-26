@@ -12,6 +12,7 @@ import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
 import {Provider as StoreProvider} from 'react-redux';
 import reducer from './src/Redux/index';
 import thunk from 'redux-thunk';
+import SignUpPage from './src/screen/SignUpPage';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
@@ -28,7 +29,7 @@ export default function Main() {
   return (
     <StoreProvider store={store}>
       <PaperProvider theme={theme}>
-        <AppNavigator />
+        <SignUpPage />
       </PaperProvider>
     </StoreProvider>
   );
