@@ -6,9 +6,16 @@ import {
   FlatList,
   TouchableOpacity,
   ActivityIndicator,
+  Image,
 } from 'react-native';
+
+import {List} from 'react-native-paper';
+
+//hoc
 import WithEmployee from '../hoc/WithEmployee';
 import WithLoader from '../hoc/WithLoader';
+
+import {AppImage} from '../Images';
 
 class EmployeeList extends Component {
   componentDidMount = () => {
@@ -37,7 +44,23 @@ class EmployeeList extends Component {
           <ActivityIndicator size="small" color="#00ff00" />
         </View> */}
 
-        <Text>Hello</Text>
+        {employee.emp.map(e => {
+          return (
+            <List.Item
+              key={e.id}
+              style={{marginTop: 10}}
+              title={e.name}
+              description={e.age}
+              left={props => (
+                <Image
+                  source={{uri: '../Images/Motive1.jpeg'}}
+                  style={{width: 50, height: 50}}
+                />
+              )}
+            />
+          );
+        })}
+        {/* <Text>Hello</Text>
         <FlatList
           data={employee.emp}
           keyExtractor={(item, index) => index.toString()}
@@ -58,7 +81,7 @@ class EmployeeList extends Component {
               </Text>
             </TouchableOpacity>
           )}
-        />
+        /> */}
       </View>
     );
   }

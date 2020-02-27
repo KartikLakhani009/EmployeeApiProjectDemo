@@ -1,19 +1,30 @@
 import React, {Component} from 'react';
-import {View, TouchableOpacity, Text, FlatList, StyleSheet} from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  Image,
+  FlatList,
+  StyleSheet,
+} from 'react-native';
 import {withNavigation} from 'react-navigation';
+import Icon from 'react-native-vector-icons/EvilIcons';
+import {Drawer} from 'react-native-paper';
 // import {AppImage} from '../Images';
 
 const [WelcomeScreen, EmployeeList] = [0, 1];
-const DRAWER = [
+let DRAWER = [
   {
     id: 0,
     screen: 'WelcomeScreen',
     title: 'Welcome Screen Test',
+    active: true,
   },
   {
     id: 1,
     screen: 'EmployeeList',
     title: 'Employee List',
+    active: false,
   },
 ];
 
@@ -34,20 +45,46 @@ class Drawercomponet extends Component {
   render() {
     return (
       <View>
-        <FlatList
+        <View style={Styles.Userbg}>
+          <TouchableOpacity
+            style={{alignItems: 'center', flex: 1, justifyContent: 'center'}}>
+            <Icon name="user" size={100} color="#fff" />
+            <Text style={{color: '#fff', fontSize: 18}}>User</Text>
+          </TouchableOpacity>
+        </View>
+
+        {DRAWER.map(item => {
+          return (
+            <Drawer.Item
+              key={item.id}
+              label={item.title}
+              active={item.active === true}
+              onPress={() => {
+                DRAWER.map(
+                  i =>
+                    (i.active === true ? (i.active = false) : null) &&
+                    (i === item ? (i.active = true) : null),
+                );
+                alert('Item screen : ' + item.screen);
+              }}
+            />
+          );
+        })}
+
+        {/* <FlatList
           style={{flexDirection: 'row'}}
           data={DRAWER}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item, key}) => (
-            <View style={{padding: 3, marginTop: 35}}>
-              <TouchableOpacity
-                style={Styles.ListGreen}
-                onPress={() => this.selectedItem(item)}>
-                <Text style={Styles.TextWhite}>{item.title}</Text>
-              </TouchableOpacity>
-            </View>
+            <Drawer.Item
+              label={item.title}
+              active={true}
+              onPress={() => {
+                alert('Item', item.screen);
+              }}
+            />
           )}
-        />
+        /> */}
       </View>
     );
   }
@@ -56,6 +93,17 @@ class Drawercomponet extends Component {
 export default withNavigation(Drawercomponet);
 
 const Styles = StyleSheet.create({
+  Userbg: {
+    backgroundColor: '#851240',
+    height: 150,
+  },
+
+  ProfilePic: {
+    height: 50,
+    width: 50,
+    marginLeft: 20,
+    borderRadius: 50,
+  },
   MenuStyle: {
     alignItems: 'center',
     borderRadius: 25,

@@ -29,7 +29,7 @@ export default function Main() {
   return (
     <StoreProvider store={store}>
       <PaperProvider theme={theme}>
-        <SignUpPage />
+        <AppNavigator />
       </PaperProvider>
     </StoreProvider>
   );
